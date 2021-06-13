@@ -1,19 +1,23 @@
-package main;
+package org.gmtdesk;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.gmtdesk.scene.SceneDescriptor;
+import org.gmtdesk.util.SceneLoader;
+
+import java.util.Objects;
 
 public class Main extends Application {
 
+    public static SceneLoader sceneLoader;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../scene/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        sceneLoader = new SceneLoader(primaryStage);
+        sceneLoader.loadScene(SceneDescriptor.MAIN);
     }
 
 

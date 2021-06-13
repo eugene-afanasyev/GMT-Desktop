@@ -16,9 +16,9 @@ public class SceneLoader {
         this.primaryStage = primaryStage;
     }
 
-    public void loadScene(SceneDescriptor descriptor, String title) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(descriptor.getSceneName())));
-        primaryStage.setTitle(title);
+    public void loadScene(SceneDescriptor descriptor) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(descriptor.getScenePath())));
+        primaryStage.setTitle(descriptor.getTitle());
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
