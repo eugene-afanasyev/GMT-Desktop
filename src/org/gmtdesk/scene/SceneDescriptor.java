@@ -1,7 +1,8 @@
 package org.gmtdesk.scene;
 
 public enum SceneDescriptor {
-    MAIN ("main.fxml", "Главный экран");
+    MAIN ("main.fxml", "Главный экран"),
+    GRDTRACK("grdtrack.fxml", "grdtrack");
 
     private final String sceneName;
     private final String title;

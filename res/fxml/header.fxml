@@ -6,8 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox minHeight="40" stylesheets="/stylesheets/style.css" xmlns:fx="http://javafx.com/fxml"
-    styleClass="header">
-    <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+<VBox minHeight="50" stylesheets="/stylesheets/style.css" xmlns:fx="http://javafx.com/fxml"
+    styleClass="header" fx:controller="org.gmtdesk.scene.HeaderController">
+    <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS" style="-fx-padding: 5 5 5 5;">
+        <Button fx:id="backButton" text="Назад" minWidth="150" onAction="#back"/>
     </HBox>
 </VBox>

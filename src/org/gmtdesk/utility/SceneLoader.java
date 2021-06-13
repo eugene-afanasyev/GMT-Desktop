@@ -1,4 +1,4 @@
-package org.gmtdesk.util;
+package org.gmtdesk.utility;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,16 +10,14 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SceneLoader {
-    private final Stage primaryStage;
-
-    public SceneLoader(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
+    public static Stage stage;
 
     public void loadScene(SceneDescriptor descriptor) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(descriptor.getScenePath())));
-        primaryStage.setTitle(descriptor.getTitle());
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        stage.setTitle(descriptor.getTitle());
+        stage.setScene(new Scene(root));
+        stage.show();
     }
+
+
 }
