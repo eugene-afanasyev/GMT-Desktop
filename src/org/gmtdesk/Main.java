@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         SceneLoader.stage = primaryStage;
-        sceneLoader.loadScene(SceneDescriptor.MAIN);
+        sceneLoader.loadScene(SceneDescriptor.GRDTRACK);
 
         System.out.println(System.getProperty("os.name"));
     }

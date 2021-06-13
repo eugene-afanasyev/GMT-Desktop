@@ -6,10 +6,39 @@
 
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" minWidth="1280" minHeight="720"
       stylesheets="/stylesheets/style.css" spacing="20" fx:controller="org.gmtdesk.scene.TrackController">
     <fx:include source="header.fxml"/>
-    <VBox VBox.vgrow="ALWAYS">
+    <HBox VBox.vgrow="ALWAYS" style="-fx-padding: 10 10 10 10">
+        <VBox spacing="10" maxWidth="400">
+            <Button text="Выбрать файл" onAction="#chooseFile" style="-fx-font-size: 20"/>
+            <Label text="Обрабатываемый файл: " fx:id="inputFileLabel" style="-fx-font-size: 32; -fx-wrap-text: true"/>
+            <Region minHeight="10"/>
+            <TextField promptText="Название обработанного файла" style="-fx-font-size: 16; -fx-wrap-text: false"/>
+            <Region minHeight="40"/>
 
-    </VBox>
+            <VBox spacing="5" styleClass="borderedVbox">
+                <Label style="-fx-font-size: 30" text="Точки:"/>
+                <HBox spacing="2" VBox.vgrow="ALWAYS">
+                    <Label text="x0:" style="-fx-font-size: 20" alignment="CENTER"/>
+                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                </HBox>
+                <HBox spacing="2" VBox.vgrow="ALWAYS">
+                    <Label text="y0:" style="-fx-font-size: 20" alignment="CENTER"/>
+                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                </HBox>
+                <HBox spacing="2" VBox.vgrow="ALWAYS">
+                    <Label text="x1:" style="-fx-font-size: 20" alignment="CENTER"/>
+                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                </HBox>
+                <HBox spacing="2" VBox.vgrow="ALWAYS">
+                    <Label text="y1:" style="-fx-font-size: 20" alignment="CENTER"/>
+                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                </HBox>
+                <Button style="-fx-font-size: 30" text="Вывести график"/>
+            </VBox>
+        </VBox>
+    </HBox>
 </VBox>
