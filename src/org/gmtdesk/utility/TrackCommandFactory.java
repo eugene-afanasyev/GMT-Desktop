@@ -25,7 +25,7 @@ public class TrackCommandFactory {
 
     private String command;
 
-    TrackCommandFactory(File dbFile, double[] points) {
+    public TrackCommandFactory(File dbFile, double[] points) {
         if (System.getProperty("os.name").startsWith("Linux"))
             osVersion = OSVersion.LINUX;
         else

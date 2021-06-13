@@ -23,21 +23,21 @@
                 <Label style="-fx-font-size: 30" text="Точки:"/>
                 <HBox spacing="2" VBox.vgrow="ALWAYS">
                     <Label text="x0:" style="-fx-font-size: 20" alignment="CENTER"/>
-                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                    <TextField fx:id="x0field" promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
                 </HBox>
                 <HBox spacing="2" VBox.vgrow="ALWAYS">
                     <Label text="y0:" style="-fx-font-size: 20" alignment="CENTER"/>
-                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                    <TextField fx:id="y0field" promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
                 </HBox>
                 <HBox spacing="2" VBox.vgrow="ALWAYS">
                     <Label text="x1:" style="-fx-font-size: 20" alignment="CENTER"/>
-                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                    <TextField fx:id="x1field" promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
                 </HBox>
                 <HBox spacing="2" VBox.vgrow="ALWAYS">
                     <Label text="y1:" style="-fx-font-size: 20" alignment="CENTER"/>
-                    <TextField promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
+                    <TextField fx:id="y1field" promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
                 </HBox>
-                <Button style="-fx-font-size: 30" text="Вывести график"/>
+                <Button style="-fx-font-size: 30" text="Вывести график" onAction="#process"/>
             </VBox>
         </VBox>
     </HBox>
