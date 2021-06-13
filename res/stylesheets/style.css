@@ -1,0 +1,7 @@
+. {
+    -fx-font-family: "Liberation Mono";
+}
+
+.header {
+    -fx-background-color: lightgray;
+}

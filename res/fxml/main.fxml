@@ -4,6 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.Pane?>
 <VBox fx:controller="org.gmtdesk.scene.Controller"
-      xmlns:fx="http://javafx.com/fxml" alignment="center" minWidth="1280" minHeight="720">
+      xmlns:fx="http://javafx.com/fxml" alignment="center" minWidth="1280" minHeight="720"
+      stylesheets="/stylesheets/style.css">
+    <fx:include source="header.fxml"/>
+    <VBox VBox.vgrow="ALWAYS">
+
+    </VBox>
 </VBox>

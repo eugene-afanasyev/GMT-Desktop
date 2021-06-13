@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox minHeight="40" stylesheets="/stylesheets/style.css" xmlns:fx="http://javafx.com/fxml"
+    styleClass="header">
+    <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+    </HBox>
+</VBox>
