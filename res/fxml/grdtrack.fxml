@@ -16,9 +16,6 @@
             <Button text="Выбрать файл" onAction="#chooseFile" style="-fx-font-size: 20"/>
             <Label text="Обрабатываемый файл: " fx:id="inputFileLabel" style="-fx-font-size: 32; -fx-wrap-text: true"/>
             <Region minHeight="10"/>
-            <TextField promptText="Название обработанного файла" style="-fx-font-size: 16; -fx-wrap-text: false"/>
-            <Region minHeight="40"/>
-
             <VBox spacing="5" styleClass="borderedVbox">
                 <Label style="-fx-font-size: 30" text="Точки:"/>
                 <HBox spacing="2" VBox.vgrow="ALWAYS">
