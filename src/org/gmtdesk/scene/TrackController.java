@@ -8,6 +8,7 @@ import org.gmtdesk.utility.SceneLoader;
 import org.gmtdesk.utility.TrackCommandFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,8 +43,7 @@ public class TrackController {
             inputFileLabel.textProperty().set("Файл: " + inputFile.getName());
     }
 
-    public void process(ActionEvent actionEvent)
-    {
+    public void process(ActionEvent actionEvent) throws IOException, InterruptedException {
         if (isPointsDefined())
         {
             for (TextField field : fields)
@@ -58,6 +58,9 @@ public class TrackController {
                     commandFactory.setOutputFile(outputFile);
 
                 commandFactory.execute();
+
+                // TODO: сделать визуализацию данных на графике
+                // получить точки можно с помощью commandFactory.getProcessedData()
             }
 
         } else
