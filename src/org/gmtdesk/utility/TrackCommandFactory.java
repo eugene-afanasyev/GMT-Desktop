@@ -38,6 +38,7 @@ public class TrackCommandFactory {
         }
         else {
             osVersion = OSVersion.WINDOWS;
+            command.append("grdtrack ");
         }
 
         this.points = points;
