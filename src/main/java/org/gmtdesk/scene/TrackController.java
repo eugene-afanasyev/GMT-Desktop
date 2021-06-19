@@ -1,11 +1,15 @@
 package org.gmtdesk.scene;
 
+import com.grum.geocalc.Coordinate;
+import com.grum.geocalc.EarthCalc;
+import com.grum.geocalc.Point;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.util.Pair;
 import org.gmtdesk.utility.DataReader;
+import org.gmtdesk.utility.PointHeight;
 import org.gmtdesk.utility.SceneLoader;
 import org.gmtdesk.utility.TrackCommandFactory;
 import java.io.File;
@@ -63,7 +67,7 @@ public class TrackController {
                 DataReader dataReader = new DataReader(commandFactory.getOutputFile());
 
                 var data = dataReader.readOutputFile();
-
+                var distToHeight = coords2dist(data);
                 // TODO: сделать визуализацию данных на графике
                 // получить точки можно с помощью commandFactory.getProcessedData()
             }
@@ -78,6 +82,23 @@ public class TrackController {
         }
     }
 
+    private ArrayList<Pair<Double, Double>> coords2dist(ArrayList<PointHeight> data) {
+        ArrayList<Pair<Double, Double>> distToHeight = new ArrayList<>();
+        distToHeight.add(new Pair<>(0.0, data.get(0).getHeight()));
+        Point prevPoint = data.get(0).getPoint();
+
+        for (int i = 1; i < data.size(); i++) {
+            Point curPoint = data.get(i).getPoint();
+
+            double distance = EarthCalc.gcd.distance(prevPoint, curPoint);
+
+            distToHeight.add(new Pair<>(distance, data.get(i - 1).getHeight()));
+            System.out.println(distToHeight.get(i));
+        }
+
+        return distToHeight;
+    }
+
     private double[] getFieldsValues()
     {
         double[] values = new double[4];
@@ -89,7 +110,7 @@ public class TrackController {
                 values[i] = Double.parseDouble(fields.get(i).getText());
             }
             catch (NumberFormatException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
 

@@ -1,0 +1,15 @@
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<VBox fx:controller="org.gmtdesk.scene.MainSceneController"
+      xmlns:fx="http://javafx.com/fxml" alignment="center" minWidth="1280" minHeight="720"
+      stylesheets="/stylesheets/style.css" spacing="20">
+    <Label text="Выберите функцию" style="-fx-font-size: 50; -fx-font-weight: bold" textAlignment="CENTER"/>
+    <Button text="grdtrack" minHeight="60" minWidth="200" style="-fx-font-size: 20" onAction="#toTrackScene"/>
+    <Button text="grd2xyz" minHeight="60" minWidth="200" style="-fx-font-size: 20"/>
+</VBox>

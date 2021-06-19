@@ -1,5 +1,8 @@
 package org.gmtdesk.utility;
 
+import com.grum.geocalc.Coordinate;
+import com.grum.geocalc.Point;
+
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.io.File;
@@ -22,8 +25,9 @@ public class DataReader {
 
             String[] rawData = reader.nextLine().split("\\s+");
 
-            Point2D point = new Point();
-            point.setLocation(Double.parseDouble(rawData[0]), Double.parseDouble(rawData[1]));
+            Coordinate lon = Coordinate.fromDegrees(Double.parseDouble(rawData[0]));
+            Coordinate lat = Coordinate.fromDegrees(Double.parseDouble(rawData[1]));
+            Point point = Point.at(lat, lon);
 
             double height = Double.parseDouble(rawData[2]);
 

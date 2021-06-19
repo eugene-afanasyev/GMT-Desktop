@@ -1,0 +1,30 @@
+.label {
+    -fx-font-family: "Open Sans";
+}
+
+.button {
+}
+
+.header {
+    -fx-background-color: lightgray;
+    -fx-font-size: 14pt;
+}
+
+.borderedVbox {
+    -fx-border-color: #d6dff6;
+    -fx-border-width: 3;
+    -fx-border-radius: 5px;
+
+    -fx-background-radius: 5px;
+
+    -fx-padding: 10;
+}
+
+#filledField {
+    -fx-border-width: 0;
+}
+
+#blankField {
+    -fx-border-width: 2;
+    -fx-border-color: indianred;
+}
