@@ -67,35 +67,6 @@ public class TrackCommandFactory {
         Runtime runtime = Runtime.getRuntime();
         Process process = runtime.exec(command.toString());
         process.waitFor();
-
-        readOutputFile();
-    }
-
-    public ArrayList<PointHeight> readOutputFile() throws IOException {
-        ArrayList<PointHeight> data = new ArrayList<>();
-        Scanner reader = new Scanner(outputFile);
-        while (reader.hasNextLine()) {
-            PointHeight pointHeight;
-
-            String[] rawData = reader.nextLine().split("\\s+");
-
-            Point2D point = new Point();
-            point.setLocation(Double.parseDouble(rawData[0]), Double.parseDouble(rawData[1]));
-
-            double height = Double.parseDouble(rawData[2]);
-
-            pointHeight = new PointHeight(point, height);
-
-            data.add(pointHeight);
-        }
-
-        for (PointHeight ph :
-                data) {
-            System.out.println(ph.getPoint());
-            System.out.println(ph.getHeight());
-        }
-
-        return data;
     }
 
     public ArrayList<double[]> getProcessedData() {

@@ -4,9 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.util.Pair;
+import org.gmtdesk.utility.DataReader;
 import org.gmtdesk.utility.SceneLoader;
 import org.gmtdesk.utility.TrackCommandFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,6 +59,10 @@ public class TrackController {
                     commandFactory.setOutputFile(outputFile);
 
                 commandFactory.execute();
+
+                DataReader dataReader = new DataReader(commandFactory.getOutputFile());
+
+                var data = dataReader.readOutputFile();
 
                 // TODO: сделать визуализацию данных на графике
                 // получить точки можно с помощью commandFactory.getProcessedData()
