@@ -42,12 +42,12 @@
                 <Button style="-fx-font-size: 30" text="Вывести график" onAction="#process"/>
             </VBox>
         </VBox>
-            <LineChart fx:id="chart">
+            <LineChart fx:id="chart" minWidth="800">
                 <xAxis>
-                    <NumberAxis  side="BOTTOM" />
+                    <NumberAxis label="Distance (km)" side="BOTTOM" />
                 </xAxis>
                 <yAxis>
-                    <NumberAxis side="LEFT" />
+                    <NumberAxis label="Height (m)" side="LEFT" />
                 </yAxis>
             </LineChart>
         </HBox>

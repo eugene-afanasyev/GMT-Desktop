@@ -11,5 +11,4 @@
       stylesheets="/stylesheets/style.css" spacing="20">
     <Label text="Выберите функцию" style="-fx-font-size: 50; -fx-font-weight: bold" textAlignment="CENTER"/>
     <Button text="grdtrack" minHeight="60" minWidth="200" style="-fx-font-size: 20" onAction="#toTrackScene"/>
-    <Button text="grd2xyz" minHeight="60" minWidth="200" style="-fx-font-size: 20"/>
 </VBox>

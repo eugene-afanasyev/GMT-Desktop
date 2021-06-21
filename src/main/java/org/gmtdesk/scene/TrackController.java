@@ -69,12 +69,10 @@ public class TrackController {
             if(!b.isNaN()) {
                 series.getData().add(new XYChart.Data(aRes, bRes));
             }
-
-//            else {
-//                series.getData().add(new XYChart.Data(aRes, search_value(dist, i)));
-//            }
         }
+        series.setName("Height");
         chart.getData().add(series);
+        chart.setCreateSymbols(false);
     }
 
     public Double search_value(ArrayList<Pair<Double, Double>> dist, int k) {
@@ -134,21 +132,6 @@ public class TrackController {
                 // TODO: сделать визуализацию данных на графике
                 // получить точки можно с помощью commandFactory.getProcessedData()
                 draw_graphic(distToHeight);
-
-//                //chart = new LineChart<Number, Number>();
-
-//                chart.getData().clear();
-//                XYChart.Series series = new XYChart.Series();
-//                for(int i = 0; i < distToHeight.size(); i++) {
-//                    var a = distToHeight.get(i).getKey();
-//                    var b = distToHeight.get(i).getValue();
-//                    var aRes = (Number)a;
-//                    var bRes = (Number)b;
-//                    if(!(b.isNaN() || b.isInfinite() || a.isNaN() || a.isInfinite())) {
-//                        series.getData().add(new XYChart.Data(aRes, bRes));
-//                    }
-//                }
-//                chart.getData().add(series);
             }
 
         } else
@@ -171,7 +154,7 @@ public class TrackController {
 
             double distance = EarthCalc.gcd.distance(prevPoint, curPoint);
 
-            distToHeight.add(new Pair<>(distance, data.get(i - 1).getHeight()));
+            distToHeight.add(new Pair<>(distance / 1000.0, data.get(i - 1).getHeight()));
             System.out.println(distToHeight.get(i));
         }
 

@@ -45,8 +45,14 @@ public class TrackCommandFactory {
         this.inputFile = dbFile;
 
         outputFile = new File(".out.txt");
-        if (outputFile.createNewFile()) {
-            System.out.println(outputFile.getAbsolutePath());
+        if (outputFile.exists())
+        {
+            outputFile.delete();
+            outputFile.createNewFile();
+        }
+        else
+        {
+            outputFile.createNewFile();
         }
     }
 

@@ -35,12 +35,7 @@ public class DataReader {
 
             data.add(pointHeight);
         }
-
-        for (PointHeight ph :
-                data) {
-            System.out.println(ph.getPoint());
-            System.out.println(ph.getHeight());
-        }
+        reader.close();
 
         return data;
     }
