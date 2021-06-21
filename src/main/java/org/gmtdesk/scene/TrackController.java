@@ -3,7 +3,14 @@ package org.gmtdesk.scene;
 import com.grum.geocalc.Coordinate;
 import com.grum.geocalc.EarthCalc;
 import com.grum.geocalc.Point;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -32,6 +39,9 @@ public class TrackController {
 
     private TrackCommandFactory commandFactory;
 
+    @FXML
+    private LineChart<Double, Double> chart;
+
     public void initialize()
     {
         fields = new ArrayList<>(Arrays.asList(x0field, y0field, x1field, y1field));
@@ -46,6 +56,59 @@ public class TrackController {
 
         if (inputFile != null)
             inputFileLabel.textProperty().set("Файл: " + inputFile.getName());
+    }
+
+    public void draw_graphic(ArrayList<Pair<Double, Double>> dist) {
+        chart.getData().clear();
+        XYChart.Series series = new XYChart.Series();
+        for(int i = 0; i < dist.size(); i++) {
+            var a = dist.get(i).getKey();
+            var b = dist.get(i).getValue();
+            var aRes = (Number)a;
+            var bRes = (Number)b;
+            if(!b.isNaN()) {
+                series.getData().add(new XYChart.Data(aRes, bRes));
+            }
+
+//            else {
+//                series.getData().add(new XYChart.Data(aRes, search_value(dist, i)));
+//            }
+        }
+        chart.getData().add(series);
+    }
+
+    public Double search_value(ArrayList<Pair<Double, Double>> dist, int k) {
+        Double left = null;
+        Double right = null;
+        int t_right = k;
+        int t_left = k;
+        if(k != 0) {
+            left = dist.get(k-1).getValue();
+        }
+
+        while(dist.get(t_left).getValue().isNaN() && t_left > 0) {
+            t_left--;
+        }
+
+        while(dist.get(t_right).getValue().isNaN() && t_right != dist.size()-1) {
+            t_right++;
+        }
+
+        if(!dist.get(t_right).getValue().isNaN()) {
+            right = dist.get(t_right).getValue();
+        }
+
+        if(!dist.get(t_left).getValue().isNaN()) {
+            left = dist.get(t_left).getValue();
+        }
+
+        if(left == null) {
+            return right;
+        } else if(right == null) {
+            return left;
+        } else {
+            return (left + right) / 2;
+        }
     }
 
     public void process(ActionEvent actionEvent) throws IOException, InterruptedException {
@@ -70,6 +133,22 @@ public class TrackController {
                 var distToHeight = coords2dist(data);
                 // TODO: сделать визуализацию данных на графике
                 // получить точки можно с помощью commandFactory.getProcessedData()
+                draw_graphic(distToHeight);
+
+//                //chart = new LineChart<Number, Number>();
+
+//                chart.getData().clear();
+//                XYChart.Series series = new XYChart.Series();
+//                for(int i = 0; i < distToHeight.size(); i++) {
+//                    var a = distToHeight.get(i).getKey();
+//                    var b = distToHeight.get(i).getValue();
+//                    var aRes = (Number)a;
+//                    var bRes = (Number)b;
+//                    if(!(b.isNaN() || b.isInfinite() || a.isNaN() || a.isInfinite())) {
+//                        series.getData().add(new XYChart.Data(aRes, bRes));
+//                    }
+//                }
+//                chart.getData().add(series);
             }
 
         } else

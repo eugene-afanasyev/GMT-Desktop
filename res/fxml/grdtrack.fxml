@@ -8,10 +8,15 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.AreaChart?>
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" minWidth="1280" minHeight="720"
       stylesheets="/stylesheets/style.css" spacing="20" fx:controller="org.gmtdesk.scene.TrackController">
     <fx:include source="header.fxml"/>
     <HBox VBox.vgrow="ALWAYS" style="-fx-padding: 10 10 10 10">
+        <HBox>
         <VBox spacing="10" maxWidth="400">
             <Button text="Выбрать файл" onAction="#chooseFile" style="-fx-font-size: 20"/>
             <Label text="Обрабатываемый файл: " fx:id="inputFileLabel" style="-fx-font-size: 32; -fx-wrap-text: true"/>
@@ -37,5 +42,14 @@
                 <Button style="-fx-font-size: 30" text="Вывести график" onAction="#process"/>
             </VBox>
         </VBox>
+            <LineChart fx:id="chart">
+                <xAxis>
+                    <NumberAxis  side="BOTTOM" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis side="LEFT" />
+                </yAxis>
+            </LineChart>
+        </HBox>
     </HBox>
 </VBox>
