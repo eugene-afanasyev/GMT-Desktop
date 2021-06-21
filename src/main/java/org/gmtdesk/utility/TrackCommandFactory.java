@@ -68,8 +68,6 @@ public class TrackCommandFactory {
         command.append(pointsArg).append(" ");
         command.append("> ").append(outputFile.getAbsolutePath());
 
-        System.out.println(command);
-
         Runtime runtime = Runtime.getRuntime();
         Process process = runtime.exec(command.toString());
         process.waitFor();

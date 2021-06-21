@@ -19,7 +19,7 @@
         <HBox>
         <VBox spacing="10" maxWidth="400">
             <Button text="Выбрать файл" onAction="#chooseFile" style="-fx-font-size: 20"/>
-            <Label text="Обрабатываемый файл: " fx:id="inputFileLabel" style="-fx-font-size: 32; -fx-wrap-text: true"/>
+            <Label fx:id="inputFileLabel" style="-fx-font-size: 32; -fx-wrap-text: true"/>
             <Region minHeight="10"/>
             <VBox spacing="5" styleClass="borderedVbox">
                 <Label style="-fx-font-size: 30" text="Точки:"/>
@@ -39,7 +39,7 @@
                     <Label text="y1:" style="-fx-font-size: 20" alignment="CENTER"/>
                     <TextField fx:id="y1field" promptText="0.0" minWidth="100" prefWidth="100" style="-fx-font-size: 20"/>
                 </HBox>
-                <Button style="-fx-font-size: 30" text="Вывести график" onAction="#process"/>
+                <Button style="-fx-font-size: 30" text="Построить график" onAction="#process" fx:id="processButton"/>
             </VBox>
         </VBox>
             <LineChart fx:id="chart" minWidth="800">

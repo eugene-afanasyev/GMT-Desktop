@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -31,6 +32,7 @@ public class TrackController {
     public TextField y0field;
     public TextField x1field;
     public TextField y1field;
+    public Button processButton;
 
     private File inputFile;
     private File outputFile;
@@ -129,8 +131,6 @@ public class TrackController {
 
                 var data = dataReader.readOutputFile();
                 var distToHeight = coords2dist(data);
-                // TODO: сделать визуализацию данных на графике
-                // получить точки можно с помощью commandFactory.getProcessedData()
                 draw_graphic(distToHeight);
             }
 

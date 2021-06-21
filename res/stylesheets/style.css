@@ -28,3 +28,7 @@
     -fx-border-width: 2;
     -fx-border-color: indianred;
 }
+
+.default-color0.chart-series-line { -fx-stroke: blue; }
+.default-color1.chart-series-line { -fx-stroke: blue; }
+.default-color2.chart-series-line { -fx-stroke: blue; }
